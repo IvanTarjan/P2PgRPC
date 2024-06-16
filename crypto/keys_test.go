@@ -30,7 +30,7 @@ func TestPrivateKeySign(t *testing.T){
 	pubKey := privKey.Public()
 	msg := []byte("hello")
 	signature := privKey.Sign(msg)
-
+	fmt.Println(signature)
 	assert.True(t, signature.Verify(pubKey, msg))
 
 	assert.False(t, signature.Verify(pubKey, []byte("world")))

@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+option go_package = "github.com/IvanTarjan/P2PgRPC/proto";
+
+message Block {
+    Header header = 1;
+    repeated Transaction  transactions= 2;
+}
+
+message Header {
+    int32 version = 1;
+    int32 height = 2;
+    bytes prevHash = 3;
+    bytes rootHash = 4;
+    int64 timestamp = 5;
+}
+
+message TxInput {
+    bytes PrevTxHash = 1;
+    uint32 PrevOutIndex = 2;
+    bytes publicKey = 3;
+    bytes signature = 4;
+}
+
+message TxOutput {
+    int64 amount = 1;
+    bytes address = 2;
+}
+
+message Transaction {
+    int32 version = 1;
+    repeated TxInput inputs = 2;
+    repeated TxOutput outputs = 3;
+}
