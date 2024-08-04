@@ -10,3 +10,6 @@ proto:
 	proto/*.proto
 
 .PHONY: proto
+
+test:
+	@go test -v ./...
